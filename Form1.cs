@@ -17,6 +17,7 @@ namespace weather
         string Location;
         string Currenttime;
         string timezone;
+        string Feels;
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace weather
 
         private void Getdata(string location)
         {
-            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l+%T+%Z");
+            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l+%T+%Z+%f");
 
             var request = new RestRequest();
             request.AddParameter("method", "GET");
@@ -44,6 +45,7 @@ namespace weather
                 Location = weatherParameter[6];
                 Currenttime = weatherParameter[7];
                 timezone = weatherParameter[8];
+                Feels = weatherParameter[9];
 
                 DisplayData();
             }
@@ -64,6 +66,7 @@ namespace weather
             selloc.Text = "location Selected: " + Location;
             seltime.Text = "TIME: " + Currenttime;
             selzone.Text = "TIME ZONE: " + timezone;
+            selfeel.Text = "FEELS LIKE: " + Feels;
 
         }
         private void search_Click(object sender, EventArgs e)
