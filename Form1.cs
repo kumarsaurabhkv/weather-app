@@ -15,6 +15,8 @@ namespace weather
         string Moonphase;
         string Precipitation;
         string Location;
+        string Currenttime;
+        string timezone;
 
         public Form1()
         {
@@ -23,7 +25,7 @@ namespace weather
 
         private void Getdata(string location)
         {
-            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l");
+            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l+%T+%Z");
 
             var request = new RestRequest();
             request.AddParameter("method", "GET");
@@ -40,6 +42,8 @@ namespace weather
                 Moonphase = weatherParameter[4];
                 Precipitation = weatherParameter[5];
                 Location = weatherParameter[6];
+                Currenttime = weatherParameter[7];
+                timezone = weatherParameter[8];
 
                 DisplayData();
             }
@@ -53,11 +57,13 @@ namespace weather
         {
             selweather.Text = "WEATHER: " + Weather;
             seltemp.Text = "TEMPERATURE: " + Temperature;
-            selwind.Text="WIND: " + Wind;
+            selwind.Text= "WIND: " + Wind;
             selhumidity.Text = "HUMIDITY: " + Humidity;
             selmoon.Text = "Moon Phase: " + Moonphase;
             selper.Text = "PERCIPITATION: " + Precipitation;
             selloc.Text = "location Selected: " + Location;
+            seltime.Text = "TIME: " + Currenttime;
+            selzone.Text = "TIME ZONE: " + timezone;
 
         }
         private void search_Click(object sender, EventArgs e)

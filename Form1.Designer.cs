@@ -39,6 +39,9 @@
             this.seltemp = new System.Windows.Forms.Label();
             this.selweather = new System.Windows.Forms.Label();
             this.selloc = new System.Windows.Forms.Label();
+            this.seltime = new System.Windows.Forms.Label();
+            this.selzone = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.siticoneGradientPanel1.SuspendLayout();
             this.siticoneGradientPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +50,7 @@
             // 
             this.siticoneGradientPanel1.AutoRoundedCorners = true;
             this.siticoneGradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneGradientPanel1.BorderRadius = 43;
+            this.siticoneGradientPanel1.BorderRadius = 20;
             this.siticoneGradientPanel1.Controls.Add(this.search);
             this.siticoneGradientPanel1.Controls.Add(this.location);
             this.siticoneGradientPanel1.FillColor = System.Drawing.SystemColors.GrayText;
@@ -92,18 +95,22 @@
             this.location.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.location.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.location.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.location.Location = new System.Drawing.Point(38, 15);
+            this.location.Location = new System.Drawing.Point(17, 15);
             this.location.Name = "location";
             this.location.PasswordChar = '\0';
             this.location.PlaceholderText = "Location";
             this.location.SelectedText = "";
-            this.location.Size = new System.Drawing.Size(477, 55);
+            this.location.Size = new System.Drawing.Size(498, 55);
             this.location.TabIndex = 1;
             // 
             // siticoneGradientPanel2
             // 
             this.siticoneGradientPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.siticoneGradientPanel2.BorderRadius = 20;
+            this.siticoneGradientPanel2.Controls.Add(this.label1);
+            this.siticoneGradientPanel2.Controls.Add(this.selzone);
+            this.siticoneGradientPanel2.Controls.Add(this.seltime);
             this.siticoneGradientPanel2.Controls.Add(this.selper);
             this.siticoneGradientPanel2.Controls.Add(this.selmoon);
             this.siticoneGradientPanel2.Controls.Add(this.selhumidity);
@@ -199,6 +206,39 @@
             this.selloc.TabIndex = 0;
             this.selloc.Text = "Selected Location";
             // 
+            // seltime
+            // 
+            this.seltime.AutoSize = true;
+            this.seltime.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.seltime.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.seltime.Location = new System.Drawing.Point(441, 93);
+            this.seltime.Name = "seltime";
+            this.seltime.Size = new System.Drawing.Size(67, 35);
+            this.seltime.TabIndex = 7;
+            this.seltime.Text = "Time?";
+            // 
+            // selzone
+            // 
+            this.selzone.AutoSize = true;
+            this.selzone.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.selzone.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.selzone.Location = new System.Drawing.Point(441, 210);
+            this.selzone.Name = "selzone";
+            this.selzone.Size = new System.Drawing.Size(116, 35);
+            this.selzone.TabIndex = 8;
+            this.selzone.Text = "TimeZone ?";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label1.Location = new System.Drawing.Point(441, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 35);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Feels like ?";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -231,6 +271,9 @@
         private System.Windows.Forms.Label selweather;
         private System.Windows.Forms.Label selper;
         private System.Windows.Forms.Label selmoon;
+        private System.Windows.Forms.Label seltime;
+        private System.Windows.Forms.Label selzone;
+        private System.Windows.Forms.Label label1;
     }
 }
 
