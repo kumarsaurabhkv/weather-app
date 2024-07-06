@@ -246,11 +246,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(804, 588);
+            this.ClientSize = new System.Drawing.Size(804, 581);
             this.Controls.Add(this.siticoneGradientPanel2);
             this.Controls.Add(this.siticoneGradientPanel1);
+            this.Cursor = System.Windows.Forms.Cursors.PanNW;
+            this.MaximumSize = new System.Drawing.Size(820, 620);
             this.Name = "Form1";
             this.Opacity = 0.9D;
+            this.ShowIcon = false;
             this.Text = "Form1";
             this.siticoneGradientPanel1.ResumeLayout(false);
             this.siticoneGradientPanel2.ResumeLayout(false);
