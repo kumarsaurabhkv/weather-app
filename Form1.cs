@@ -36,7 +36,7 @@ namespace weather
 
             else
             {
-                MessageBox.Show("Error!");
+                MessageBox.Show("Error! " + response.StatusCode);
             }
         }
     }
