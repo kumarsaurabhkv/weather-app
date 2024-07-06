@@ -238,6 +238,7 @@
             this.selloc.Size = new System.Drawing.Size(172, 35);
             this.selloc.TabIndex = 0;
             this.selloc.Text = "Selected Location";
+            this.selloc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -251,6 +252,7 @@
             this.Controls.Add(this.siticoneGradientPanel1);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
             this.MaximumSize = new System.Drawing.Size(820, 620);
+            this.MinimumSize = new System.Drawing.Size(820, 620);
             this.Name = "Form1";
             this.Opacity = 0.9D;
             this.ShowIcon = false;

@@ -14,7 +14,7 @@ namespace weather
         string Humidity;
         string Moonphase;
         string Precipitation;
-        string Location;
+        string CLocation;
         string Currenttime;
         string timezone;
         string Feels;
@@ -35,19 +35,28 @@ namespace weather
 
             if (response.IsSuccessful)
             {
-                string[] weatherParameter = Regex.Split(response.Content, " ");
-                Weather = weatherParameter[0];
-                Temperature = weatherParameter[1];
-                Wind = weatherParameter[2];
-                Humidity = weatherParameter[3];
-                Moonphase = weatherParameter[4];
-                Precipitation = weatherParameter[5];
-                Location = weatherParameter[6];
-                Currenttime = weatherParameter[7];
-                timezone = weatherParameter[8];
-                Feels = weatherParameter[9];
+                // Use regular expressions to handle multiple spaces more robustly
+                string[] weatherParameter = Regex.Split(response.Content, @"\s+");
 
-                DisplayData();
+                if (weatherParameter.Length >= 10)
+                {
+                    Weather = weatherParameter[0];
+                    Temperature = weatherParameter[1];
+                    Wind = weatherParameter[2];
+                    Humidity = weatherParameter[3];
+                    Moonphase = weatherParameter[4];
+                    Precipitation = weatherParameter[5];
+                    CLocation = weatherParameter[6];
+                    Currenttime = weatherParameter[7];
+                    timezone = weatherParameter[8];
+                    Feels = weatherParameter[9];
+
+                    DisplayData();
+                }
+                else
+                {
+                    MessageBox.Show("Error! Incomplete data received.");
+                }
             }
             else
             {
@@ -59,28 +68,32 @@ namespace weather
         {
             selweather.Text = "WEATHER: " + Weather;
             seltemp.Text = "TEMPERATURE: " + Temperature;
-            selwind.Text= "WIND: " + Wind;
+            selwind.Text = "WIND: " + Wind;
             selhumidity.Text = "HUMIDITY: " + Humidity;
             selmoon.Text = "Moon Phase: " + Moonphase;
-            selper.Text = "PERCIPITATION: " + Precipitation;
-            selloc.Text = "location Selected: " + Location;
+            selper.Text = "PRECIPITATION: " + Precipitation;
+            selloc.Text = "Location: " + CLocation;
             seltime.Text = "TIME: " + Currenttime;
             selzone.Text = "TIME ZONE: " + timezone;
             selfeel.Text = "FEELS LIKE: " + Feels;
-
         }
+
         private void search_Click(object sender, EventArgs e)
         {
-            if (location.Text != " ")
+            if (!string.IsNullOrWhiteSpace(location.Text))
             {
                 try
                 {
                     Getdata(location.Text);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("error");
+                    Console.WriteLine("Error: " + ex.Message);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a location.");
             }
         }
 
