@@ -8,6 +8,14 @@ namespace weather
 {
     public partial class Form1 : Form
     {
+        string Weather;
+        string Temperature;
+        string Wind;
+        string Humidity;
+        string Moonphase;
+        string Precipitation;
+        string Location;
+
         public Form1()
         {
             InitializeComponent();
@@ -15,7 +23,7 @@ namespace weather
 
         private void Getdata(string location)
         {
-            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m");
+            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l");
 
             var request = new RestRequest();
             request.AddParameter("method", "GET");
@@ -25,19 +33,15 @@ namespace weather
             if (response.IsSuccessful)
             {
                 string[] weatherParameter = Regex.Split(response.Content, " ");
+                Weather = weatherParameter[0];
+                Temperature = weatherParameter[1];
+                Wind = weatherParameter[2];
+                Humidity = weatherParameter[3];
+                Moonphase = weatherParameter[4];
+                Precipitation = weatherParameter[5];
+                Location = weatherParameter[6];
 
-                if (weatherParameter.Length >= 5)
-                {
-                    Console.WriteLine("Weather: " + weatherParameter[0]);
-                    Console.WriteLine("Temp: " + weatherParameter[1]);
-                    Console.WriteLine("Wind: " + weatherParameter[2]);
-                    Console.WriteLine("Humidity: " + weatherParameter[3]);
-                    Console.WriteLine("Moon Phase: " + weatherParameter[4]);
-                }
-                else
-                {
-                    MessageBox.Show("Unexpected response format!");
-                }
+                DisplayData();
             }
             else
             {
@@ -45,9 +49,35 @@ namespace weather
             }
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        private void DisplayData()
         {
-            Getdata("Ranchi");
+            selweather.Text = "WEATHER: " + Weather;
+            seltemp.Text = "TEMPERATURE: " + Temperature;
+            selwind.Text="WIND: " + Wind;
+            selhumidity.Text = "HUMIDITY: " + Humidity;
+            selmoon.Text = "Moon Phase: " + Moonphase;
+            selper.Text = "PERCIPITATION: " + Precipitation;
+            selloc.Text = "location Selected: " + Location;
+
+        }
+        private void search_Click(object sender, EventArgs e)
+        {
+            if (location.Text != " ")
+            {
+                try
+                {
+                    Getdata(location.Text);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("error");
+                }
+            }
+        }
+
+        private void selmoon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
