@@ -1,6 +1,6 @@
 ﻿namespace weather
 {
-    partial class Form1
+    partial class MYweather
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MYweather));
             this.siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.search = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.location = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneGradientPanel2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
+            this.selmoonday = new System.Windows.Forms.Label();
+            this.selsunrise = new System.Windows.Forms.Label();
             this.selfeel = new System.Windows.Forms.Label();
             this.selzone = new System.Windows.Forms.Label();
             this.seltime = new System.Windows.Forms.Label();
@@ -42,6 +45,8 @@
             this.seltemp = new System.Windows.Forms.Label();
             this.selweather = new System.Windows.Forms.Label();
             this.selloc = new System.Windows.Forms.Label();
+            this.siticoneContextMenuStrip1 = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
+            this.selsunset = new System.Windows.Forms.Label();
             this.siticoneGradientPanel1.SuspendLayout();
             this.siticoneGradientPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +112,9 @@
             this.siticoneGradientPanel2.BackColor = System.Drawing.Color.Transparent;
             this.siticoneGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.siticoneGradientPanel2.BorderRadius = 20;
+            this.siticoneGradientPanel2.Controls.Add(this.selsunset);
+            this.siticoneGradientPanel2.Controls.Add(this.selmoonday);
+            this.siticoneGradientPanel2.Controls.Add(this.selsunrise);
             this.siticoneGradientPanel2.Controls.Add(this.selfeel);
             this.siticoneGradientPanel2.Controls.Add(this.selzone);
             this.siticoneGradientPanel2.Controls.Add(this.seltime);
@@ -127,6 +135,29 @@
             this.siticoneGradientPanel2.Size = new System.Drawing.Size(776, 470);
             this.siticoneGradientPanel2.TabIndex = 1;
             this.siticoneGradientPanel2.UseTransparentBackground = true;
+            // 
+            // selmoonday
+            // 
+            this.selmoonday.AutoSize = true;
+            this.selmoonday.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.selmoonday.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.selmoonday.Location = new System.Drawing.Point(441, 268);
+            this.selmoonday.Name = "selmoonday";
+            this.selmoonday.Size = new System.Drawing.Size(114, 35);
+            this.selmoonday.TabIndex = 11;
+            this.selmoonday.Text = "Moon Day?";
+            // 
+            // selsunrise
+            // 
+            this.selsunrise.AutoSize = true;
+            this.selsunrise.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.selsunrise.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.selsunrise.Location = new System.Drawing.Point(441, 317);
+            this.selsunrise.Name = "selsunrise";
+            this.selsunrise.Size = new System.Drawing.Size(89, 35);
+            this.selsunrise.TabIndex = 10;
+            this.selsunrise.Text = "Sunrise?";
+            this.selsunrise.Click += new System.EventHandler(this.label1_Click);
             // 
             // selfeel
             // 
@@ -177,19 +208,18 @@
             this.selmoon.AutoSize = true;
             this.selmoon.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
             this.selmoon.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.selmoon.Location = new System.Drawing.Point(33, 317);
+            this.selmoon.Location = new System.Drawing.Point(33, 268);
             this.selmoon.Name = "selmoon";
             this.selmoon.Size = new System.Drawing.Size(133, 35);
             this.selmoon.TabIndex = 5;
             this.selmoon.Text = "Moon phase ?";
-            this.selmoon.Click += new System.EventHandler(this.selmoon_Click);
             // 
             // selhumidity
             // 
             this.selhumidity.AutoSize = true;
             this.selhumidity.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
             this.selhumidity.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.selhumidity.Location = new System.Drawing.Point(33, 265);
+            this.selhumidity.Location = new System.Drawing.Point(33, 317);
             this.selhumidity.Name = "selhumidity";
             this.selhumidity.Size = new System.Drawing.Size(107, 35);
             this.selhumidity.TabIndex = 4;
@@ -227,6 +257,7 @@
             this.selweather.Size = new System.Drawing.Size(103, 35);
             this.selweather.TabIndex = 1;
             this.selweather.Text = "Weather ?";
+            this.selweather.Click += new System.EventHandler(this.selweather_Click);
             // 
             // selloc
             // 
@@ -240,7 +271,32 @@
             this.selloc.Text = "Selected Location";
             this.selloc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Form1
+            // siticoneContextMenuStrip1
+            // 
+            this.siticoneContextMenuStrip1.Name = "siticoneContextMenuStrip1";
+            this.siticoneContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.siticoneContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.siticoneContextMenuStrip1.RenderStyle.ColorTable = null;
+            this.siticoneContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            this.siticoneContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.siticoneContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.siticoneContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.siticoneContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.siticoneContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.siticoneContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // selsunset
+            // 
+            this.selsunset.AutoSize = true;
+            this.selsunset.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.selsunset.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.selsunset.Location = new System.Drawing.Point(441, 372);
+            this.selsunset.Name = "selsunset";
+            this.selsunset.Size = new System.Drawing.Size(83, 35);
+            this.selsunset.TabIndex = 12;
+            this.selsunset.Text = "Sunset?";
+            // 
+            // MYweather
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,18 +307,18 @@
             this.Controls.Add(this.siticoneGradientPanel2);
             this.Controls.Add(this.siticoneGradientPanel1);
             this.Cursor = System.Windows.Forms.Cursors.PanNW;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(820, 620);
-            this.MinimumSize = new System.Drawing.Size(820, 620);
-            this.Name = "Form1";
+            this.Name = "MYweather";
             this.Opacity = 0.9D;
-            this.ShowIcon = false;
-            this.Text = "Form1";
+            this.Text = "WEATHER APP";
             this.siticoneGradientPanel1.ResumeLayout(false);
             this.siticoneGradientPanel2.ResumeLayout(false);
             this.siticoneGradientPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 
@@ -280,6 +336,10 @@
         private System.Windows.Forms.Label seltime;
         private System.Windows.Forms.Label selzone;
         private System.Windows.Forms.Label selfeel;
+        private Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip siticoneContextMenuStrip1;
+        private System.Windows.Forms.Label selsunrise;
+        private System.Windows.Forms.Label selmoonday;
+        private System.Windows.Forms.Label selsunset;
     }
 }
 

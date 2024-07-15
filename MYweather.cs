@@ -6,28 +6,30 @@ using RestSharp;
 
 namespace weather
 {
-    public partial class Form1 : Form
+    public partial class MYweather : Form
     {
+        string CLocation;
         string Weather;
         string Temperature;
         string Wind;
         string Humidity;
         string Moonphase;
         string Precipitation;
-        string CLocation;
         string Currenttime;
         string timezone;
         string Feels;
+        string Moonday;
+        string Sunrise;
+        string Sunset;
 
-        public Form1()
+        public MYweather()
         {
             InitializeComponent();
         }
 
         private void Getdata(string location)
         {
-            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%C+%t+%w+%h+%m+%p+%l+%T+%Z+%f");
-
+            var client = new RestClient($"https://wttr.in/{WebUtility.UrlEncode(location)}?format=%c+%t+%w+%h+%m+%p+%l+%T+%Z+%f+%M+%S+%s");
             var request = new RestRequest();
             request.AddParameter("method", "GET");
 
@@ -35,10 +37,11 @@ namespace weather
 
             if (response.IsSuccessful)
             {
-                // Use regular expressions to handle multiple spaces more robustly
+                Console.WriteLine("Response: " + response.Content); // Debugging: Print the raw response
+
                 string[] weatherParameter = Regex.Split(response.Content, @"\s+");
 
-                if (weatherParameter.Length >= 10)
+                if (weatherParameter.Length >= 13)
                 {
                     Weather = weatherParameter[0];
                     Temperature = weatherParameter[1];
@@ -50,6 +53,12 @@ namespace weather
                     Currenttime = weatherParameter[7];
                     timezone = weatherParameter[8];
                     Feels = weatherParameter[9];
+                    Moonday = weatherParameter[10];
+                    Sunrise = weatherParameter[11];
+                    Sunset = weatherParameter[12];
+
+
+
 
                     DisplayData();
                 }
@@ -70,13 +79,17 @@ namespace weather
             seltemp.Text = "TEMPERATURE: " + Temperature;
             selwind.Text = "WIND: " + Wind;
             selhumidity.Text = "HUMIDITY: " + Humidity;
-            selmoon.Text = "Moon Phase: " + Moonphase;
+            selmoon.Text = "MOON PHASE: " + Moonphase;
             selper.Text = "PRECIPITATION: " + Precipitation;
-            selloc.Text = "Location: " + CLocation;
+            selloc.Text = "LOCATION: " + CLocation;
             seltime.Text = "TIME: " + Currenttime;
             selzone.Text = "TIME ZONE: " + timezone;
             selfeel.Text = "FEELS LIKE: " + Feels;
+            selmoonday.Text = "MOONDAY: "+ Moonday;
+            selsunrise.Text = "SUNRISE: " + Sunrise;
+            selsunset.Text = "SUNSET: " + Sunset;
         }
+
 
         private void search_Click(object sender, EventArgs e)
         {
@@ -98,6 +111,26 @@ namespace weather
         }
 
         private void selmoon_Click(object sender, EventArgs e)
+        {
+            // Event handler logic...
+        }
+
+        private void selweather_Click(object sender, EventArgs e)
+        {
+            // Event handler logic...
+        }
+
+        private void MYweather_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtWeather_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
