@@ -11,9 +11,3 @@
     <h2 style="margin: 0;">Author Name</h2>
     <p style="margin: 0; color: #666;">Author's bio or description goes here. This is a short introduction or summary about the author.</p>
 </div>
-
-![image](https://github.com/user-attachments/assets/5bb98dce-1997-495e-9c32-d0e50f0e1e0c)
-
-
-
-https://via.placeholder.com/100
