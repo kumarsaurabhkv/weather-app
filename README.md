@@ -8,6 +8,6 @@
 
 <div align="center">
     <img src="https://cdn-icons-png.flaticon.com/128/7928/7928632.png" alt="Author Icon" style="border-radius: 50%; width: 100px; height: 100px; margin-bottom: 10px;">
-    <h2 style="margin: 0;">Author Name</h2>
-    <p style="margin: 0; color: #666;">Author's bio or description goes here. This is a short introduction or summary about the author.</p>
+    <h2 style="margin: 0;">KUMAR SAURABH</h2>
+    <p style="margin: 0; color: #666;">STUDENT OF ICFAI.</p>
 </div>
