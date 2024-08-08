@@ -33,6 +33,7 @@
             this.search = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.location = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneGradientPanel2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
+            this.selsunset = new System.Windows.Forms.Label();
             this.selmoonday = new System.Windows.Forms.Label();
             this.selsunrise = new System.Windows.Forms.Label();
             this.selfeel = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.selweather = new System.Windows.Forms.Label();
             this.selloc = new System.Windows.Forms.Label();
             this.siticoneContextMenuStrip1 = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
-            this.selsunset = new System.Windows.Forms.Label();
             this.siticoneGradientPanel1.SuspendLayout();
             this.siticoneGradientPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +135,17 @@
             this.siticoneGradientPanel2.Size = new System.Drawing.Size(776, 470);
             this.siticoneGradientPanel2.TabIndex = 1;
             this.siticoneGradientPanel2.UseTransparentBackground = true;
+            // 
+            // selsunset
+            // 
+            this.selsunset.AutoSize = true;
+            this.selsunset.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
+            this.selsunset.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.selsunset.Location = new System.Drawing.Point(441, 372);
+            this.selsunset.Name = "selsunset";
+            this.selsunset.Size = new System.Drawing.Size(83, 35);
+            this.selsunset.TabIndex = 12;
+            this.selsunset.Text = "Sunset?";
             // 
             // selmoonday
             // 
@@ -284,17 +295,6 @@
             this.siticoneContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.siticoneContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.siticoneContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // selsunset
-            // 
-            this.selsunset.AutoSize = true;
-            this.selsunset.Font = new System.Drawing.Font("Reem Kufi", 14F, System.Drawing.FontStyle.Bold);
-            this.selsunset.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.selsunset.Location = new System.Drawing.Point(441, 372);
-            this.selsunset.Name = "selsunset";
-            this.selsunset.Size = new System.Drawing.Size(83, 35);
-            this.selsunset.TabIndex = 12;
-            this.selsunset.Text = "Sunset?";
             // 
             // MYweather
             // 
